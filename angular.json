@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "shahs-accretion"
+    }
+  },
+  "defaultProject": "shahs-accretion",
+  "cli": {
+    "analytics": false
+  }
 }
