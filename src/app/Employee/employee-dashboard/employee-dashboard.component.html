@@ -1,0 +1,53 @@
+<div id="wrapper">
+    <app-employee-sidebar></app-employee-sidebar>
+    <div class="d-flex flex-column" id="content-wrapper">
+      <div id="content">
+        <app-dashboard-header></app-dashboard-header>
+        <div class="container-fluid">
+          <div class="d-sm-flex justify-content-between align-items-center mb-4">
+            <h3 class="text-dark mb-0">Dashboard</h3>
+          </div>
+  
+          <ng-container *ngIf="todos.length>0; else elseTemplate">
+          
+            <div class="card shadow mb-4">
+              <div class="card-header bg-danger py-3">
+                <h6 class=" text-white font-weight-bold m-0">Alert &nbsp;<span><i class="fas fa-bell fa-sm text-white-50"></i></span></h6>
+              </div>
+              <ul class="list-group list-group-flush">
+    
+                <li class="list-group-item">
+                  <div class="row align-items-center no-gutters">
+                    <div class="col mr-2">
+                      <h6 class="mb-0">
+                        <strong>
+                          Todos are still pending by you...!
+                        </strong>
+                      </h6>
+                      <span class="text-xs">
+                        Total <span style="font-weight: 700; color:red;">{{ todos.length }}</span> Todos are pending yet. 
+                      </span>
+                    </div>
+                    <div class="col-auto">
+                        <label class="">
+                          <a class="btn btn-primary" [routerLink]="'/employee/todos/list'">Head there</a>    
+                        </label>
+                    </div>
+                  </div>
+                </li>
+    
+              </ul>
+            </div>
+  
+          </ng-container>
+          <ng-template #elseTemplate>
+          </ng-template>
+
+          <div class="row">
+          </div>
+        </div>
+      </div>
+      <app-dashboard-footer></app-dashboard-footer>
+    </div>
+    <a class="border rounded-circle d-inline scroll-to-top" href="#organization_page_top"><i class="fas fa-arrow-up"></i></a>
+  </div>

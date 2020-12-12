@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="error-template">
+                <h1>
+                    Oops!</h1>
+                <h2 class="text-danger">
+                    404 URL not found
+                </h2>
+                <p class="text-danger text-muted">Page not found</p>
+                <div class="error-details">
+                    Sorry, an error has occured, Requested URL doesn't exist!
+                </div>
+                <div class="error-actions">
+                    <a [routerLink]="'/organization/dashboard'" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
+                        Take Me Home </a>
+                    <a href="http://www.jquery2dotnet.com" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Contact Support </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-sticky-footer></app-sticky-footer>

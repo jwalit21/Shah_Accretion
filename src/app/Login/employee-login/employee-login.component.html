@@ -1,0 +1,33 @@
+<app-login-header-component></app-login-header-component>
+<div id="wrapper">
+  <h3 id="success_message" class="success_message"></h3>
+  <h3 id="message" class="message"></h3>
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-md-9 col-lg-12 col-xl-10">
+              <div class="card shadow-lg o-hidden border-0 my-5" style="border-radius: 40px;">
+                  <div class="card-body p-0">
+                      <div class="row">
+                          <div class="col-lg-6 d-none d-lg-flex">
+                              <div class="flex-grow-1 bg-login-image" style="background-image:url('/assets/laptop-3d.jpg'); border-radius: 40px;"></div>
+                          </div>
+                          <div class="col-lg-6">
+                              <div class="p-5" >
+                                  <div class="text-center">
+                                        <h4 class="text-dark mb-4">Welcome Back!</h4>
+                                        <h5 class="mb-4 text-danger"> {{ error_Msg }} </h5>
+                                        <h5 class="mb-4 text-success"> {{ succ_Msg }} </h5>
+                                  </div>
+                                  <app-employee-login-form (childErrorEvent)="msgFromChildOnError($event)"></app-employee-login-form>
+                                  <div class="text-center"><a class="small" [routerLink]="'/login/forgot_password'">Forgot Password?</a></div>
+                                  <div class="text-center"><a class="small" [routerLink]="'/organization/login'">Organization Login</a></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<app-login-footer-component></app-login-footer-component>

@@ -1,0 +1,92 @@
+<div id="wrapper">
+
+    <ng-container *ngIf="is_employee; then thenSidebar; else elseSidebar"></ng-container>
+    <ng-template #thenSidebar>
+        <app-employee-sidebar></app-employee-sidebar>
+    </ng-template>
+    <ng-template #elseSidebar>
+        <app-organization-sidebar></app-organization-sidebar>    
+    </ng-template>
+    
+    <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content">
+            <app-dashboard-header></app-dashboard-header>
+            <div class="container-fluid">
+
+                <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                    <h3 class="text-dark mb-0">Finished Todos</h3>
+
+                    <ng-container *ngIf="is_employee; then thenBackLink; else elseBackLik"></ng-container>
+                    <ng-template #thenBackLink>
+                        <a class="btn btn-danger btn-sm d-sm-inline-block" role="button" [routerLink]="'/employee/todos/list'">
+                            <i class="fas fa-backward fa-sm text-white-50"></i>
+                            Back
+                        </a>
+                    </ng-template>
+                    <ng-template #elseBackLik>
+                        <a class="btn btn-danger btn-sm d-sm-inline-block" role="button" [routerLink]="'/organization/todos/list'">
+                            <i class="fas fa-backward fa-sm text-white-50"></i>
+                            Back
+                        </a>    
+                    </ng-template>
+
+                </div>
+
+                <table id="todo_list" class="table table-responsive-lg table-striped table-hover">
+                    <thead style="background-color: #003455; color:white;">
+                        <tr>
+                            <th>Todo ID</th>
+                            <th>Title</th>
+                            <th>Issued to</th>
+                            <th>Date of issue</th>
+                            <th>Date of due</th>
+                            <th>Finished date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <ng-container *ngIf="is_employee; then thenTodoList; else elseTodoList"></ng-container>
+                    <ng-template #thenTodoList>
+
+                        <tbody style="color:black;">
+                            <tr *ngFor="let todo of todos_finished_by_employee"> <!-- (click)="onSelect(todo.todo_id)"-->
+                                <td>{{ todo.todo_id }}</td>
+                                <td>{{ todo.title }}</td>
+                                <td>{{ todo.emp_username }}</td>
+                                <td>{{ todo.date_of_issue }}</td>
+                                <td>{{ todo.date_of_due }}</td>
+                                <td>{{ todo.finished_date }}</td>
+                                <td>
+                                    <label class="p-1 pl-2 pr-2 rounded bg-success">Completed</label>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </ng-template>
+                    <ng-template #elseTodoList>
+
+                        <tbody style="color:black;">
+                            <tr *ngFor="let todo of todos_finished_for_organization"> <!-- (click)="onSelect(todo.todo_id)"-->
+                                <td>{{ todo.todo_id }}</td>
+                                <td>{{ todo.title }}</td>
+                                <td>{{ todo.emp_username }}</td>
+                                <td>{{ todo.date_of_issue }}</td>
+                                <td>{{ todo.date_of_due }}</td>
+                                <td>{{ todo.finished_date }}</td>
+                                <td>
+                                    <label class="p-1 pl-2 pr-2 rounded bg-success">Completed</label>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </ng-template>
+
+                </table>
+
+            </div>
+        </div>
+        <app-dashboard-footer></app-dashboard-footer>
+    </div>
+    <a class="border rounded-circle d-inline scroll-to-top" href="#organization_page_top"><i
+            class="fas fa-arrow-up"></i></a>
+</div>

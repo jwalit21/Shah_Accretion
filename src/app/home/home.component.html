@@ -1,0 +1,102 @@
+<app-login-header-component></app-login-header-component>
+<div class="clean-block clean-info dark">
+  <div class="container">
+    <div class="block-heading">
+      <h2 class="info-text">What we are</h2>
+      <p></p>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-md-5 mr-4 " style="background-color: #003542;"><img class="poped img-fluid"
+          src="/assets/mainlogo.png" /></div>
+      <div class="col-md-6">
+        <h2 class="info-heading">Shah's Accertion</h2>
+        <div>
+          <p>Hello folkes, This is our dynamic software "Shah's Accertion",It provides various functionalities to
+            Registered Organization and to their Employees you can easily manage all your employees, salary structure
+            and projects in an efficient and secure way.You can track the project development and Ypu can have
+            analytical data about the Project's progress. Additionally, you can easily collaborate and assign tasks to
+            the team members which results in the smooth functioning of an organization.</p>
+        </div>
+        <a [routerLink]="'/organization/register'">
+          <button class="btn btn-outline-primary btn-lg" type="button">
+            <span class="fa fa-hand-o-up" style="color:black;">
+              Join Now
+            </span>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br>
+<div class="clean-block features">
+  <div class="container">
+    <div class="block-heading">
+      <h2 class="info-text">Features</h2>
+      <p>We provide below mwntioned features deliberately.</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-5 feature-box">
+        <h4><span class="fa fa-users"></span> Employee Management</h4>
+        <p>In this module You can manage the Employees for your Organization. And keep other employees informed of their
+          collegues public infromation.</p>
+        <hr>
+      </div>
+      <div class="col-md-5 feature-box">
+        <h4><span class="fa fa-dollar"> Salary Management</span></h4>
+        <p>In this module You can manage the Role and salary Structure of the Employees for your Organization. And keep
+          other employees updated with the Role.</p>
+        <hr>
+      </div>
+      <div class="col-md-5 feature-box">
+        <h4><span class="fa fa-bar-chart"> Project Management</span></h4>
+        <p>It is afeature where employee or Orgaization can overview the progress of their Projects on
+          Dashboard.Project management is the process of leading the work of a team
+          to achieve goals and meet success criteria at a specified time. It can be achieve by satisfying
+          constraints and fullfiling goals in given time.
+        </p>
+        <hr>
+      </div>
+      <div class="col-md-5 feature-box">
+        <h4><span class="fa fa-calendar-check-o"> To-Do</span></h4>
+        <p>It is not just embedded with the feature of a reminder system to update you for the assigned tasks, messages,
+          business reports as well as announcements but it also enhances the working efficiency of the team as a whole,
+          maintaining a high level of transparency at all levels in an organization.</p>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<hr>
+<br>
+
+<div>
+  <div class="clean-block about-us container">
+    <div class="container">
+      <div class="block-heading">
+        <h2 class="info-text">About Us</h2>
+        <p>With our dynamic software, you can easily manage all your employees, salary structure and projects <br>in an
+          efficient and secure way.Additionally, you can easily collaborate and assign tasks to the <br>team members
+          which results in the smooth functioning of an organization.</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-sm-6 col-lg-4">
+          <div class="card clean-card text-center bg-light shadow-sm">
+            <div class="card-body info">
+              <h4 class="card-title">Jwalit Shah</h4>
+              <p class="card-text">Creater and Designer of Shah's Accertion.</p>
+              <p class="blockquote">Web and Android Developer.</p>
+              <div class="icons"><a [routerLink]="'/home'"><i class="icon-social-facebook"></i></a><a [routerLink]="'/home'"><i
+                    class="icon-social-instagram"></i></a><a [routerLink]="'/home'"><i class="icon-social-twitter"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-login-footer-component></app-login-footer-component>
+  <app-sticky-footer></app-sticky-footer>
+</div>

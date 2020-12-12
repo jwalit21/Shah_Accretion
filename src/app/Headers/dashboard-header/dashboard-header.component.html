@@ -1,0 +1,112 @@
+<nav class="navbar navbar-light navbar-expand shadow shadow-lg mb-4 topbar static-top">
+  <div class="container-fluid">
+    <!--mr-auto ml-md-3 my-2 my-md-0 mw-100-->
+    <form class="form-inline d-none d-sm-inline-block navbar-search">
+      <div class="input-group">
+        <input class="border-1 form-control small border-0" type="text" placeholder="Search for ...">
+        <div class="input-group-append">
+          <button class="btn py-0" type="button">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <ul class="nav navbar-nav flex-nowrap ml-auto">
+
+      <div class="d-none d-sm-block topbar-divider"></div>
+      <li class="nav-item dropdown d-sm-none">
+        <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">
+          <i class="fas fa-search"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" role="menu"
+          aria-labelledby="searchDropdown">
+          <form class="mr-auto navbar-search w-100">
+            <div class="input-group">
+              <input class="form-control border-0" type="text" placeholder="Search for ...">
+              <div class="input-group-append">
+                <button class="btn btn-primary py-0" type="button">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown no-arrow mx-1">
+        <div class="nav-item dropdown no-arrow">
+          <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">
+            <i class="fas fa-envelope fa-fw"></i>
+            <span class="badge badge-danger badge-counter">7</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right dropdown-list animated--grow-in">
+            <h6 class="dropdown-header"></h6>
+            <a class="d-flex align-items-center dropdown-item" href="#">
+              <!-- <div class="dropdown-list-image mr-3">
+                                    <img class="rounded-circle" src="/images/proffesional_profile.jpg">
+                                    <div class="bg-success status-indicator"></div>
+                                </div> -->
+              <div class="font-weight-bold">
+                <div class="text-truncate">
+                  <span>
+
+                  </span>
+                </div>
+                <p class="small text-gray-500 mb-0"></p>
+              </div>
+            </a>
+            <a class="text-center dropdown-item small text-gray-500" href="#"></a>
+          </div>
+        </div>
+      </li>
+
+      <div class="d-sm-block topbar-divider"></div>
+
+      <li class="nav-item dropdown no-arrow">
+        <div class="nav-item dropdown no-arrow">
+          <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">
+            <span class="d-none d-lg-inline mr-2 text-gray-600 small">
+               <ng-container *ngIf="is_employee; then thenTemplate; else elseTemplate"></ng-container>
+               <ng-template #thenTemplate>
+                 {{ employee_name }}
+               </ng-template>
+               <ng-template #elseTemplate>
+                 {{ director_name }}
+               </ng-template>
+            </span>
+            <img class="border rounded-circle img-profile" src="/assets/proffesional_profile1.jpg" alt="Profile">
+          </a>
+          <div class="dropdown-menu dropdown-menu-right animated--grow-in">
+            
+            <ng-container *ngIf="is_employee; then thenProfile; else elseProfile"></ng-container>
+            <ng-template #thenProfile>
+              <button class="dropdown-item" (click)="EmployeeDetails()">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> &nbsp;Profile
+              </button>
+            </ng-template>
+            <ng-template #elseProfile>
+              <button class="dropdown-item" (click)="OrganizationDetails()">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> &nbsp;Profile
+              </button>
+            </ng-template>
+            
+            <div class="dropdown-divider"></div>
+            <ng-container *ngIf="is_employee; then thenLogout; else elseLogout"></ng-container>
+            <ng-template #thenLogout>
+              <button class="dropdown-item" (click)="EmployeeLogout()">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> &nbsp;Logout
+              </button>
+            </ng-template>
+            <ng-template #elseLogout>
+              <button class="dropdown-item" (click)="OrganizationLogout()">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> &nbsp;Logout
+              </button>
+            </ng-template>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</nav>

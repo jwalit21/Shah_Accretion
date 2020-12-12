@@ -1,0 +1,74 @@
+.form-control::placeholder {
+  color:rgb(0, 0, 0);
+  opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+  color:rgb(0, 0, 0);
+}
+
+.form-control::-ms-input-placeholder {
+  color:rgb(0, 0, 0);
+}
+
+.light{
+  color:rgba(146, 36, 36, 0.664)
+}
+
+.active{
+  color:white;
+  border-left: 4px solid white;
+  /* border-bottom: 2px solid white; */
+}
+
+.form-active{
+  border-right : 4px solid #003542;
+}
+
+footer{
+  border-top: 4px solid rgb(228, 228, 228);
+}
+
+.bg-own{
+  background-color: #003542;
+}
+
+.text-own{
+  color:#003542;
+}
+
+.btn-own{
+  background-color: #003542;
+}
+
+.logo {
+  overflow: hidden;
+  width: 40px;
+  height: 16px;
+}
+
+footer {
+  width: 100%;
+  background-color: #ffffff;
+  color: black;
+  justify-content: center;
+}
+
+#footer_links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#footer_links>a {
+  padding: 9px;
+}
+
+#footer_links>a:hover {
+  padding: 12px;
+}
+
+
+.footer_content_center {
+  text-align: center;
+}

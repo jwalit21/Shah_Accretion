@@ -1,0 +1,183 @@
+<form id="employee_form" enctype="multipart/form-data" [formGroup]="user" (ngSubmit)="onSubmit(user)" #newUserForm> <!--class="form-horizontal"-->
+  <div class="form-group">
+      <label class="control-label ml-2 col-sm-2" for="first_name">First Name<span style="color: red;">*</span></label>
+      <div class="row">
+        <div class="col-sm-7 ml-3">
+            <input type="text" formControlName="first_name" name="first_name" class="form-control form-control-user" id="first_name"
+                placeholder="Enter First Name">
+            <!-- <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div> -->
+        </div>
+        <div class="col-sm-4 mt-2 ml-2">
+            <span class="ml-2 text-danger" *ngIf="user.get('first_name').hasError('required') && user.get('first_name').touched">
+                First name is required
+            </span>
+        </div>
+      </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label ml-2 col-sm-2" for="last_name">Last Name<span style="color: red;">*</span></label>
+    <div class="row">
+      <div class="col-sm-7 ml-3">
+          <input type="text" formControlName="last_name" name="last_name" class="form-control form-control-user" id="last_name"
+              placeholder="Enter Last Name">
+      </div>
+      <div class="col-sm-4 mt-2 ml-2">
+          <span class="ml-2 text-danger" *ngIf="user.get('last_name').hasError('required') && user.get('last_name').touched">
+              Last name is required
+          </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label ml-2 col-sm-2" for="email">Email<span style="color: red;">*</span></label>
+    <div class="row">
+      <div class="col-sm-7 ml-3">
+          <input type="text" formControlName="email" name="email" class="form-control form-control-user" id="email"
+              placeholder="Enter Email">
+      </div>
+      <div class="col-sm-4 mt-2 ml-2">
+        <span class="ml-2 text-danger" *ngIf="user.get('email').hasError('required')
+            && user.get('email').touched">
+            Email is required
+        </span>
+        <span class="ml-2 text-danger" *ngIf="user.get('email').hasError('email')
+            && user.get('email').touched">
+            Email is invalid!
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label ml-2 col-sm-2" for="email">Mobile number<span style="color: red;">*</span></label>
+    <div class="row">
+      <div class="col-sm-7 ml-3">
+          <input type="tel" formControlName="mobile" name="mobile" class="form-control form-control-user" id="mobile"
+              placeholder="Enter Mobile number">
+      </div>
+      <div class="col-sm-4 mt-2 ml-2">
+        <span class="ml-2 text-danger" *ngIf="user.get('mobile').hasError('required')
+            && user.get('mobile').touched">
+            Mobile number is required
+        </span>
+        <span class="ml-2 text-danger" *ngIf="(user.get('mobile').hasError('minlength') ||
+            user.get('mobile').hasError('maxlength')) &&
+            user.get('mobile').touched">
+            Mobile number must be 10 digit long
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label ml-2 col-sm-2" for="email">Password<span style="color: red;">*</span></label>
+    <div class="row">
+      <div class="col-sm-7 ml-3">
+          <input type="password" formControlName="password" name="password" class="form-control form-control-user" id="password"
+              placeholder="Enter Password">
+      </div>
+      <div class="col-sm-4 mt-2 ml-2">
+        <span class="ml-2 text-danger" *ngIf="user.get('password').hasError('required') &&
+            user.get('password').touched">
+            Password is required
+        </span>
+        <span class="ml-2 text-danger" *ngIf="user.get('password').hasError('minlength') &&
+            user.get('password').touched">
+            Password must atleast 4 characters long
+        </span>
+        <span class="ml-2 text-danger" *ngIf="user.get('password').hasError('maxlength') &&
+            user.get('password').touched">
+            Password must atmost 10 characters long
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label ml-2 col-sm-2" for="last_name">Address<span style="color: red;">*</span></label>
+    <div class="row">
+      <div class="col-sm-7 ml-3">
+          <textarea formControlName="address" name="address" class="form-control form-control-user" id="address"
+              placeholder="Enter residental address"></textarea>
+      </div>
+      <div class="col-sm-4 mt-2 ml-2">
+          <span class="ml-2 text-danger" *ngIf="user.get('address').hasError('required') && user.get('address').touched">
+              Address is required
+          </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label ml-2 col-sm-2" for="last_name">Date of Birth<span style="color: red;">*</span></label>
+    <div class="row">
+      <div class="col-sm-7 ml-3">
+          <input type="date" formControlName="dob" name="dob" class="form-control form-control-user" id="dob"
+              placeholder="Enter Date of Birth">
+      </div>
+      <div class="col-sm-4 mt-2 ml-2">
+          <span class="ml-2 text-danger" *ngIf="user.get('dob').hasError('required') && user.get('dob').touched">
+              Date of Birth is required
+          </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label ml-2 col-sm-2" for="last_name">Date of Join<span style="color: red;">*</span></label>
+    <div class="row">
+      <div class="col-sm-7 ml-3">
+          <input type="date" formControlName="doj" name="doj" class="form-control form-control-user" id="doj"
+              placeholder="Enter Date of Join">
+      </div>
+      <div class="col-sm-4 mt-2 ml-2">
+          <span class="ml-2 text-danger" *ngIf="user.get('doj').hasError('required') && user.get('doj').touched">
+              Date of Join is required
+          </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label ml-2 col-sm-4" for="last_name">Blood group(A|B|O|AB)(+/-)<span style="color: red;">*</span></label>
+    <div class="row">
+      <div class="col-sm-7 ml-3">
+          <input type="text" formControlName="blood_group" name="blood_group" class="form-control form-control-user" id="blood_group"
+              placeholder="Enter Blood group" pattern="^(A|B|AB|O)[+-]$">
+      </div>
+      <div class="col-sm-4 mt-2 ml-2">
+          <span class="ml-2 text-danger" *ngIf="user.get('blood_group').hasError('required') && user.get('blood_group').touched">
+            Blood group is required
+          </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label ml-2 col-sm-2" for="last_name">Profile photo<span style="color: red;">*</span></label>
+    <div class="row">
+      <div class="col-sm-7 ml-3">
+          <input type="file" formControlName="photo" name="photo" class="form-control form-control-user" id="photo"
+              placeholder="Select employee profile photo">
+      </div>
+      <div class="col-sm-4 mt-2 ml-2">
+          <span class="ml-2 text-danger" *ngIf="user.get('photo').hasError('required') && user.get('photo').touched">
+              Employee Profile photo is required
+          </span>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10 flex-first">
+          <button type="submit" [disabled]="user.invalid" class="btn btn-primary
+           mr-3 ml-2"
+              value="submit">Submit</button>
+          <button type="reset" (click)="user.reset()" class="btn btn-danger">Clear</button>
+      </div>
+  </div>
+</form>

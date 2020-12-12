@@ -1,0 +1,56 @@
+<div id="wrapper">
+
+  <app-organization-sidebar></app-organization-sidebar>
+  <div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+      <app-dashboard-header></app-dashboard-header>
+      <div class="container-fluid">
+
+        <div class="d-sm-flex justify-content-between align-items-center mb-4">
+          <h3 class="text-dark mb-0">Employees</h3>
+          <a class="btn btn-primary btn-sm d-sm-inline-block" role="button" [routerLink]="'/organization/employees/add'">
+              <i class="fas fa-user-plus fa-sm text-white-50"></i>
+              Add Employee
+          </a>
+        </div>
+
+        <table id="employee_list" class="table table-responsive-lg table-striped table-hover">
+          <thead style="background-color: #003455; color:white;">
+          <tr>
+            <th>Employee ID</th>
+            <th>Fullname</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Date of joining</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let emp of employees" (click)="onSelect(emp.emp_id)">
+              <td>{{ emp.emp_id }}</td>
+              <td>{{ emp.first_name }} {{ emp.last_name }}</td>
+              <td>{{ emp.email }}</td>
+              <td>{{ emp.mobile }}</td>
+              <td>{{ emp.date_of_join }}</td>
+              <td>
+                <button type="button" (click)="onUpdate(emp.emp_id)" class="btn btn-primary mr-3">
+                  Update
+                </button>
+              </td>
+              <td>
+                  <button type="button" class="btn btn-danger" class="btn btn-danger mr-3">
+                      Delete
+                  </button>
+              </td>  
+            </tr>
+          </tbody>
+        </table>
+
+
+      </div>
+    </div>
+    <app-dashboard-footer></app-dashboard-footer>
+  </div>
+  <a class="border rounded-circle d-inline scroll-to-top" href="#organization_page_top"><i class="fas fa-arrow-up"></i></a>
+</div>

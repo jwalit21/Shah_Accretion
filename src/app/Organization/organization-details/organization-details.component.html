@@ -1,0 +1,119 @@
+<div id="wrapper">
+    <app-organization-sidebar></app-organization-sidebar>
+    <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content">
+            <app-dashboard-header></app-dashboard-header>
+            
+            <div class="container-fluid">
+                <div class="align-items-center mb-4">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            
+                                <h2>Profile details</h2>
+                                <hr />
+                                <div class="card shadow-sm">
+                                    <div class="row">
+                                        <div class="col-sm-5 col-md-4">
+                                            <img class="card-img img-thumbnail" src="/assets/mainlogo.png"
+                                                alt="Profile photo">
+                                        </div>
+                                        <div class="col-sm-7 col-md-8">
+                                            <div class="card-body">
+
+                                                <h3 class="card-title text-capitalize">{{ org.organization_name }}</h3>
+
+                                                <p class="card-text">
+                                                    Organization ID : <span class="text-capitalize" style="font-weight: 900; color:blue;">{{ org.org_id }}</span>
+                                                </p>
+                                                <p class="card-text">
+                                                    Organization Name : <span class="text-capitalize">{{ org.organization_name }}</span>
+                                                </p>
+                                                <p class="card-text">
+                                                    Director Name : <span class="text-capitalize">{{ org.director_name }}</span>
+                                                </p>
+                                                <p class="card-text">
+                                                    Email : <span style="font-weight: 600; color:blue;">{{ org.email }}</span>
+                                                </p>
+                                                <p class="card-text">
+                                                    Mobile number : <span>{{ org.mobile }}</span>
+                                                </p>
+                                                <p class="card-text">
+                                                    Website Link : <span>{{ org.website_link }}</span>
+                                                </p>
+                                                <p class="card-text">
+                                                    Facebook Link : <span>{{ org.facebook_link }}</span>
+                                                </p>
+                                                <p class="card-text">
+                                                    LinkedIn Link : <span>{{ org.linkedin_link }}</span>
+                                                </p>
+                                                <p class="card-text">
+                                                    Instagram Link : <span>{{ org.instagram_link }}</span>
+                                                </p>
+                                                <br><hr>
+                                                <div class="row flex-first">
+                                                    <button type="button" (click)="onUpdate(org.org_id)" class="btn btn-primary mr-3">
+                                                        Update
+                                                    </button>
+ 
+                                                    <!-- Button trigger modal -->
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal"
+                                                        data-target="#deleteModal">
+                                                        Delete Account
+                                                    </button>
+
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="deleteModal" tabindex="-1"
+                                                        role="dialog" aria-labelledby="deleteModalLabel"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="deleteModalLabel">Delete Account</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <h5>
+                                                                        Hey <span class="text-capitalize"> {{ org.director_name }} </span> !!! :)
+                                                                    </h5>
+                                                                    <h4>
+                                                                        Are you sure to delete <span class="text-capitalize"> {{ org.organization_name }} </span> having ID {{ org.org_id }} ?
+                                                                    </h4>
+                                                                    <h4>
+                                                                        This action will delete your account permenently. This action cause deleting all your data including links,employees,project related data, todo data peremenently. :(
+                                                                    </h4>
+                                                                    <h5>
+                                                                        This action will not be revertible!! please Think again :)
+                                                                    </h5>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="onDelete(org.org_id)">
+                                                                        Delete
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                                                        Cancel
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <app-dashboard-footer></app-dashboard-footer>
+    </div>
+    <a class="border rounded-circle d-inline scroll-to-top" href="#organization_page_top"><i
+            class="fas fa-arrow-up"></i></a>
+</div>

@@ -1,0 +1,210 @@
+<div id="wrapper">
+    <app-organization-sidebar></app-organization-sidebar>
+    <div class="d-flex flex-column" id="content-wrapper">
+      <div id="content">
+        <app-dashboard-header></app-dashboard-header>
+        <div class="container-fluid">
+  
+          <div class="d-sm-flex justify-content-between align-items-center mb-4">
+            <h3 class="text-dark mb-0">Update Employee</h3>
+            <a class="btn btn-danger btn-sm d-sm-inline-block" role="button" [routerLink]="'/organization/employees/list'">
+                <i class="fas fa-backward fa-sm text-white-50"></i>
+                Back
+            </a>
+          </div>
+  
+          <div class="row">
+            <div class="col-lg-11">
+                <div class="card border shadow bg-light" style=" margin-top: 2%;">
+                    <div class="p-3 pt-4 card-header" style="background-color: #003542; color:white">
+                        <h5 class="text-center">Update Employee Details ID: {{ emp.emp_id }}</h5>
+                        <h5 class="text-danger text-center
+                        "> {{ error_Msg }} </h5>
+                    </div>
+                    <div class="card-body">
+                        
+
+                        <form id="employee_form" enctype="multipart/form-data" [formGroup]="user" (ngSubmit)="onSubmit(user)" #newUserForm> <!--class="form-horizontal"-->
+                            
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="control-label ml-2 col-sm-6" >Employee ID: &nbsp; <span class="text-capitalize" style="font-weight: 900; color:blue;">{{ emp.emp_id }}</span></label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label ml-2 col-sm-6" for="first_name">First Name<span style="color: red;">*</span></label>
+                                <div class="row">
+                                  <div class="col-sm-7 ml-3">
+                                      <input type="text" formControlName="first_name" name="first_name" class="form-control form-control-user" id="first_name"
+                                          placeholder="Enter First Name">
+                                      <!-- <div class="valid-feedback">Valid.</div>
+                                      <div class="invalid-feedback">Please fill out this field.</div> -->
+                                  </div>
+                                  <div class="col-sm-4 mt-2 ml-2">
+                                      <span class="ml-2 text-danger" *ngIf="user.get('first_name').hasError('required') && user.get('first_name').touched">
+                                          First name is required
+                                      </span>
+                                  </div>
+                                </div>
+                            </div>
+                          
+                            <div class="form-group">
+                              <label class="control-label ml-2 col-sm-6" for="last_name">Last Name<span style="color: red;">*</span></label>
+                              <div class="row">
+                                <div class="col-sm-7 ml-3">
+                                    <input type="text" formControlName="last_name" name="last_name" class="form-control form-control-user" id="last_name"
+                                        placeholder="Enter Last Name">
+                                </div>
+                                <div class="col-sm-4 mt-2 ml-2">
+                                    <span class="ml-2 text-danger" *ngIf="user.get('last_name').hasError('required') && user.get('last_name').touched">
+                                        Last name is required
+                                    </span>
+                                </div>
+                              </div>
+                            </div>
+                          
+                            <div class="form-group">
+                              <div class="row">
+                                <div class="col-sm-7 ml-2">
+                                    <label class="mt-3 control-label col-sm-6">Email (Username): &nbsp;<span style="font-weight: 600; color:blue;"> {{ emp.email }} </span></label>
+                                </div>
+                                <div class="col-sm-4 mt-2 ml-2">
+                                    <label class="ml-3 mt-3 text-danger">
+                                        Username can't be changed
+                                    </label>
+                                    <!-- <span class="ml-2 text-danger" *ngIf="user.get('email').hasError('required')
+                                      && user.get('email').touched">
+                                      Email is required
+                                  </span>
+                                    <span class="ml-2 text-danger" *ngIf="user.get('email').hasError('email')
+                                      && user.get('email').touched">
+                                      Email is invalid!
+                                  </span> -->
+                                </div>
+                              </div>
+                            </div>
+                          
+                            <div class="form-group">
+                              <label class="control-label ml-2 col-sm-6" for="email">Mobile number<span style="color: red;">*</span></label>
+                              <div class="row">
+                                <div class="col-sm-7 ml-3">
+                                    <input type="tel" formControlName="mobile" name="mobile" class="form-control form-control-user" id="mobile"
+                                        placeholder="Enter Mobile number">
+                                </div>
+                                <div class="col-sm-4 mt-2 ml-2">
+                                  <span class="ml-2 text-danger" *ngIf="user.get('mobile').hasError('required')
+                                      && user.get('mobile').touched">
+                                      Mobile number is required
+                                  </span>
+                                  <span class="ml-2 text-danger" *ngIf="(user.get('mobile').hasError('minlength') ||
+                                      user.get('mobile').hasError('maxlength')) &&
+                                      user.get('mobile').touched">
+                                      Mobile number must be 10 digit long
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          
+                            <div class="form-group">
+                              <label class="control-label ml-2 col-sm-6" for="last_name">Address<span style="color: red;">*</span></label>
+                              <div class="row">
+                                <div class="col-sm-7 ml-3">
+                                    <textarea formControlName="address" name="address" class="form-control form-control-user" id="address"
+                                        placeholder="Enter residental address"></textarea>
+                                </div>
+                                <div class="col-sm-4 mt-2 ml-2">
+                                    <span class="ml-2 text-danger" *ngIf="user.get('address').hasError('required') && user.get('address').touched">
+                                        Address is required
+                                    </span>
+                                </div>
+                              </div>
+                            </div>
+                          
+                            <div class="form-group">
+                              <label class="control-label ml-2 col-sm-6" for="last_name">Date of Birth<span style="color: red;">*</span></label>
+                              <div class="row">
+                                <div class="col-sm-7 ml-3">
+                                    <input type="date" formControlName="dob" name="dob" class="form-control form-control-user" id="dob"
+                                        placeholder="Enter Date of Birth">
+                                </div>
+                                <div class="col-sm-4 mt-2 ml-2">
+                                    <span class="ml-2 text-danger" *ngIf="user.get('dob').hasError('required') && user.get('dob').touched">
+                                        Date of Birth is required
+                                    </span>
+                                </div>
+                              </div>
+                            </div>
+                          
+                            <div class="form-group">
+                              <label class="control-label ml-2 col-sm-6" for="last_name">Date of Join<span style="color: red;">*</span></label>
+                              <div class="row">
+                                <div class="col-sm-7 ml-3">
+                                    <input type="date" formControlName="doj" name="doj" class="form-control form-control-user" id="doj"
+                                        placeholder="Enter Date of Join">
+                                </div>
+                                <div class="col-sm-4 mt-2 ml-2">
+                                    <span class="ml-2 text-danger" *ngIf="user.get('doj').hasError('required') && user.get('doj').touched">
+                                        Date of Join is required
+                                    </span>
+                                </div>
+                              </div>
+                            </div>
+                          
+                            <div class="form-group">
+                              <label class="control-label ml-2 col-sm-6" for="last_name">Blood group(A|B|O|AB)(+/-)<span style="color: red;">*</span></label>
+                              <div class="row">
+                                <div class="col-sm-7 ml-3">
+                                    <input type="text" formControlName="blood_group" name="blood_group" class="form-control form-control-user" id="blood_group"
+                                        placeholder="Enter Blood group" pattern="^(A|B|AB|O)[+-]$">
+                                </div>
+                                <div class="col-sm-4 mt-2 ml-2">
+                                    <span class="ml-2 text-danger" *ngIf="user.get('blood_group').hasError('required') && user.get('blood_group').touched">
+                                      Blood group is required
+                                    </span>
+                                </div>
+                              </div>
+                            </div>
+                          
+                            <div class="form-group">
+                              <label class="control-label ml-2 col-sm-6" for="last_name">Profile photo</label>
+                              <div class="row">
+                                <div class="col-sm-7 ml-3">
+                                    <input type="file" formControlName="photo" name="photo" class="form-control form-control-user" id="photo"
+                                        placeholder="Select employee profile photo">
+                                </div>
+                                <div class="col-sm-4 ml-3 mt-1">
+                                    <img class="img-thumbnail img-profile" style="height: 50px; width: 50px;" src="/assets/proffesional_profile.jpg"
+                                    alt="Profile photo">
+                                </div>
+                                <!-- <div class="col-sm-4 mt-2">
+                                    <span class="ml-2 text-danger" *ngIf="user.get('photo').hasError('required') && user.get('photo').touched">
+                                        Employee Profile photo is required
+                                    </span>
+                                </div> -->
+                              </div>
+                            </div>
+                            <br>
+                          
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10 flex-first">
+                                    <button type="submit" [disabled]="user.invalid" class="btn btn-primary
+                                     mr-3 ml-2"
+                                        value="submit">Submit</button>
+                                    <button type="reset" (click)="user.reset()" class="btn btn-danger">Clear</button>
+                                </div>
+                            </div>
+                          </form>
+                          
+
+                        
+                    </div>
+                </div>
+            </div>
+          </div>
+          <br><br>
+        </div>
+      </div>
+      <app-dashboard-footer></app-dashboard-footer>
+    </div>
+    <a class="border rounded-circle d-inline scroll-to-top" href="#organization_page_top"><i class="fas fa-arrow-up"></i></a>
+</div>
+  

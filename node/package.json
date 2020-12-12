@@ -1,0 +1,21 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "server side scripts in node.js for Shah's Accretion Angular project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jwalit Shah",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "formidable": "^2.0.0-canary.20200504.1",
+    "http": "0.0.1-security",
+    "mongoose": "^5.10.10",
+    "multer": "^1.4.2"
+  }
+}

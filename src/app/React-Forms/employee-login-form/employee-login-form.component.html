@@ -1,0 +1,32 @@
+<form class="user" [formGroup]="user" (ngSubmit)="onSubmit(user)" #newUserForm>
+  
+  <div class="form-group">
+    <input type="email" formControlName="username" data-toggle="tooltip" class="form-control form-control-user"
+      id="username" placeholder="Username : Email " name="username" style="box-shadow: 0px 0px 1px;" title="Enter Username" />
+      <small class="ml-2 text-danger" *ngIf="user.get('username').hasError('required') && user.get('username').touched">
+        Email is required
+      </small>
+  </div>
+
+  <div class="form-group">
+    <input type="text" data-toggle="tooltip"  required title="Enter Organization ID" formControlName="organization_id" data-toggle="tooltip" class="form-control form-control-user"
+      id="organization_id" placeholder="Organization Id" name="organization_id" style="box-shadow: 0px 0px 1px;"/>
+      <small class="ml-2 text-danger" *ngIf="user.get('organization_id').hasError('required') && user.get('organization_id').touched">
+        Organization's unique ID is required
+      </small>
+  </div>
+
+  <div class="form-group">
+    <input type="password" data-toggle="tooltip"  required title="Enter Password" formControlName="password" data-toggle="tooltip" class="form-control form-control-user"
+      id="org_pass" placeholder="Password" name="password" style="box-shadow: 0px 0px 1px;"/>
+      <small class="ml-2 text-danger" *ngIf="user.get('password').hasError('required') && user.get('password').touched">
+        Password is required
+      </small>
+  </div>
+
+  <button class="btn btn-primary btn-block text-white btn-user" type="submit" [disabled]="user.invalid">
+    Login
+  </button>
+  <hr />
+  <hr />
+</form>

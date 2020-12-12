@@ -1,0 +1,128 @@
+<form class="user" enctype="multipart/form-data" [formGroup]="user" (ngSubmit)="onSubmit(user)" #newUserForm>
+  <div class="form-group">
+    <input type="text" style="box-shadow: 0px 0px 1px" class="form-control
+      form-control-user" id="org_name" placeholder="Organzation Name*" formControlName="organization_name" />
+    <small class="ml-2 text-danger" *ngIf="user.get('organization_name').hasError('required')
+      &&
+      user.get('organization_name').touched">
+      Organization name is required
+    </small>
+  </div>
+
+  <div class="form-group">
+    <input type="text" style="box-shadow: 0px 0px 1px" class="form-control
+      form-control-user" id="dir_name" placeholder="Director Name*" formControlName="director_name" />
+    <small class="ml-2 text-danger" *ngIf="user.get('director_name').hasError('required')
+      &&
+      user.get('director_name').touched">
+      Director name is required
+    </small>
+  </div>
+
+  <div class="form-group">
+    <input type="email" style="box-shadow: 0px 0px 1px" class="form-control
+      form-control-user" id="us" placeholder="Email Address*" formControlName="email" />
+    <small class="ml-2 text-danger" *ngIf="user.get('email').hasError('required')
+      && user.get('email').touched">
+      Email is required
+    </small>
+    <small class="ml-2 text-danger" *ngIf="user.get('email').hasError('email')
+      && user.get('email').touched">
+      Email is invalid!
+    </small>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      <input type="password" style="box-shadow: 0px 0px 1px" class="form-control
+        form-control-user" id="pass" placeholder="Password*" formControlName="password" />
+      <small class="ml-2 text-danger" *ngIf="user.get('password').hasError('required')
+        &&
+        user.get('password').touched">
+        Password is required
+      </small>
+      <small class="ml-2 text-danger" *ngIf="user.get('password').hasError('minlength')
+        &&
+        user.get('password').touched">
+        Password must atleast 4 characters long
+      </small>
+      <small class="ml-2 text-danger" *ngIf="user.get('password').hasError('maxlength')
+        &&
+        user.get('password').touched">
+        Password must atmost 10 characters long
+      </small>
+    </div>
+    <div class="col-sm-6">
+      <input type="password" style="box-shadow: 0px 0px 1px" class="form-control
+        form-control-user" id="pass_reset" placeholder="Confirm Password*" formControlName="repeat_password" />
+      <small class="ml-2 text-danger" *ngIf="user.get('repeat_password').hasError('required')
+        &&
+        user.get('repeat_password').touched">
+        Confirm Password is required
+      </small>
+      <small class="ml-2 text-danger" *ngIf="user.get('repeat_password').hasError('minlength')
+        &&
+        user.get('repeat_password').touched">
+        Password must atleast 4 characters long
+      </small>
+      <small class="ml-2 text-danger" *ngIf="user.get('repeat_password').hasError('maxlength')
+        &&
+        user.get('repeat_password').touched">
+        Password must atmost 10 characters long
+      </small>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      <input type="tel" style="box-shadow: 0px 0px 1px" class="form-control
+        form-control-user" id="mob" placeholder="Mobile Number*" formControlName="mobile" />
+      <small class="ml-2 text-danger" *ngIf="user.get('mobile').hasError('required')
+        && user.get('mobile').touched">
+        Mobile number is required
+      </small>
+      <small class="ml-2 text-danger" *ngIf="(user.get('mobile').hasError('minlength')
+        ||
+        user.get('mobile').hasError('maxlength')) &&
+        user.get('mobile').touched">
+        Mobile number must be 10 digit long
+      </small>
+    </div>
+    <div class="col-sm-6">
+      <input type="url" pattern="https?://.+" style="box-shadow: 0px 0px 1px" class="form-control form-control-user"
+        id="web_link" placeholder="Website Link" formControlName="website_link" />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input type="url" pattern="https?://.+" style="box-shadow: 0px 0px 1px" class="form-control form-control-user"
+      id="facebook_link" placeholder="Facebook Link" formControlName="facebook_link" />
+  </div>
+
+  <div class="form-group">
+    <input type="url" pattern="https?://.+" style="box-shadow: 0px 0px 1px" class="form-control form-control-user"
+      id="linkedin_link" placeholder="Linkedin Link" formControlName="linkedin_link" />
+  </div>
+
+  <div class="form-group">
+    <input type="url" pattern="https?://.+" style="box-shadow: 0px 0px 1px" class="form-control form-control-user"
+      id="instagram_link" placeholder="Insagram Link" formControlName="instagram_link" />
+  </div>
+
+  <div class="form-group">
+    <input type="file" style="box-shadow: 0px 0px 1px" id="org_logo" placeholder="Organization Logo"
+      formControlName="logo" required/> <!--(change)="onFileSelect($event)"-->
+    <small class="ml-2 text-danger" *ngIf="user.get('logo').hasError('required')
+      && user.get('logo').touched">
+      Logo is required
+    </small>
+  </div>
+
+  <br />
+
+  <button class="btn btn-primary btn-block text-white btn-user" type="submit" [disabled]="user.invalid">
+    Register Account
+  </button>
+  <hr />
+  <hr />
+</form>

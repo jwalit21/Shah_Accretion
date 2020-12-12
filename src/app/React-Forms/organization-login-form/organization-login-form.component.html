@@ -1,0 +1,38 @@
+<form class="user" [formGroup]="user" (ngSubmit)="onSubmit(user)" #newUserForm>
+
+  <div class="form-group">
+    <input type="email" data-toggle="tooltip"  title="Enter Email" formControlName="username" class="form-control form-control-user" id="org_username"
+      placeholder="Enter Email Address..." name="email" style="box-shadow: 0px 0px 1px;"/>
+      <!--data-toggle="tooltip"  required title="Enter Email" -->
+      <small class="ml-2 text-danger" *ngIf="user.get('username').hasError('required') && user.get('username').touched">
+        Email is required
+      </small>
+      <small class="ml-2 text-danger" *ngIf="user.get('username').hasError('email') && user.get('username').touched">
+        Email format is invalid!
+      </small>
+  </div>
+  <div class="form-group">
+    <input type="password" data-toggle="tooltip"  required title="Enter Password" formControlName="password" data-toggle="tooltip" class="form-control form-control-user"
+      id="org_pass" placeholder="Password" name="password" style="box-shadow: 0px 0px 1px;"/>
+      <small class="ml-2 text-danger" *ngIf="user.get('password').hasError('required') && user.get('password').touched">
+        Password is required
+      </small>
+  </div>
+  <!-- <div class="form-group">
+    <div class="custom-control custom-checkbox small">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input custom-control-input"
+          id="formCheck-1" />
+          <label class="form-check-label custom-control-label" for="formCheck-1">
+            Remember Me
+          </label>
+      </div>
+    </div>
+  </div> -->
+  <button class="btn btn-primary btn-block text-white btn-user" type="submit" [disabled]="user.invalid">
+    Login
+  </button>
+  <hr />
+  <hr />
+
+</form>

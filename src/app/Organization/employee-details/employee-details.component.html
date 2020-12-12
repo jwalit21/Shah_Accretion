@@ -1,0 +1,118 @@
+<div id="wrapper" [ngClass]="hiddenClass">
+    <app-organization-sidebar></app-organization-sidebar>
+    <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content">
+            <app-dashboard-header></app-dashboard-header>
+            
+            <div class="container-fluid">
+                <div class="align-items-center mb-4">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0">Employee Details</h3>
+                        <a class="btn btn-danger btn-sm d-sm-inline-block" role="button" [routerLink]="'/organization/employees/list'">
+                            <i class="fas fa-backward fa-sm text-white-50"></i>
+                            Back
+                        </a>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            
+                                <div class="card shadow-sm">
+                                    <div class="row">
+                                        <div class="col-sm-5 col-md-4">
+                                            <img class="card-img img-thumbnail" src="/assets/proffesional_profile.jpg"
+                                                alt="Profile photo">
+                                        </div>
+                                        <div class="col-sm-7 col-md-8">
+                                            <div class="card-body">
+                                                <h3 class="card-title text-capitalize">{{ emp.first_name }} {{ emp.last_name }}</h3>
+                                                <p class="card-text text-primary">
+                                                    <span class="text-capitalize">
+                                                        {{ emp.first_name }} {{ emp.last_name }}
+                                                    </span> 
+                                                    is a employee of 
+                                                    <span class="text-capitalize">
+                                                        {{ user_cookie.organization_name }}
+                                                    </span>
+                                                    since {{ emp.date_of_join }}.
+                                                </p>
+                                                <p class="card-text">
+                                                    Employee ID : <span class="text-capitalize" style="font-weight: 900; color:blue;">{{ emp.emp_id }}</span>
+                                                </p>
+                                                <p class="card-text">
+                                                    Name : <span class="text-capitalize">{{ emp.first_name }} {{ emp.last_name }}</span>
+                                                </p>
+                                                <p class="card-text">
+                                                    Email : <span style="font-weight: 600; color:blue;">{{ emp.email }}</span>
+                                                </p>
+                                                <p class="card-text">
+                                                    Mobile number : <span>{{ emp.mobile }}</span>
+                                                </p>
+                                                <p class="card-text">
+                                                    Date of Birth : <span>{{ emp.date_of_birth }}</span>
+                                                </p>
+                                                <p class="card-text">
+                                                    Date of Join : <span>{{ emp.date_of_join }}</span>
+                                                </p>
+                                                <p class="card-text">
+                                                    Blood group : <span>{{ emp.blood_group }}</span>
+                                                </p>
+                                                <p class="card-text">
+                                                    Address : <small class="text-muted">{{ emp.address }}</small>
+                                                </p>
+                                                <br><hr>
+                                                <div class="row flex-first">
+                                                    <button type="button" (click)="onUpdate(emp.emp_id)" class="btn btn-primary mr-3">
+                                                        Update
+                                                    </button>
+ 
+                                                    <!-- Button trigger modal -->
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal"
+                                                        data-target="#deleteModal">
+                                                        Delete
+                                                    </button>
+
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="deleteModal" tabindex="-1"
+                                                        role="dialog" aria-labelledby="deleteModalLabel"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="deleteModalLabel">Delete Employee</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    Are you sure to delete <span class="text-capitalize"> {{ emp.first_name }} {{ emp.last_name }} </span> having ID {{ emp.emp_id }} ?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="onDelete(emp.emp_id)">
+                                                                        Delete
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                                                        Cancel
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <app-dashboard-footer></app-dashboard-footer>
+    </div>
+    <a class="border rounded-circle d-inline scroll-to-top" href="#organization_page_top"><i
+            class="fas fa-arrow-up"></i></a>
+</div>

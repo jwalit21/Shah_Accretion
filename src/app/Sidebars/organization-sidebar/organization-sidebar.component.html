@@ -1,0 +1,69 @@
+<nav class="navbar align-items-start sidebar sidebar-dark accordion pl-0 bg-own h-100">
+  <div class="container-fluid d-flex p-0">
+    <a class="navbar-brand shadow-lg d-flex justify-content-center align-items-center sidebar-brand m-1 ml-3"
+      [routerLink]="'/organization/dashboard'">
+      <div class="sidebar-brand-icon">
+        <img class="rounded-circle img-fluid w-50 h-50" src="/assets/mainlogo.png" alt="Profile">
+      </div>
+
+      <div class="sidebar-brand-text mx-3"><span> {{ organization_name }}</span></div>
+    </a>
+    <hr class="sidebar-divider my-1">
+    <ul class="nav navbar-nav text-light mt-0" id="accordionSidebar">
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'/organization/dashboard'" routerLinkActive="active">
+          <i class="fas fa-bars"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a id="employee_link_parent" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="javascript:;">
+          <i class="fas fa-user"></i>
+          <span>Employee</span>
+        </a>
+        <div class="dropdown-menu" role="menu">
+          <a class="employee_link dropdown-item" [routerLink]="'/organization/employees/list'" routerLinkActive="active">
+            <i class="fas fa-users"></i>
+            <span>&nbsp; Manage Employees</span>
+          </a>
+          <a class="employee_link dropdown-item" [routerLink]="'/organization/employees/add'" routerLinkActive="active">
+            <i class="fas fa-user-plus"></i>
+            <span>&nbsp; Add Employee</span>
+          </a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/organization/salary-role_organization.html">
+          <i class="fas fa-dollar"></i>
+          <span>Salary-Role Schema</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'/organization/todos/list'" routerLinkActive="active">
+          <i class="far fa-calendar-check-o"></i>
+          <span>To-Do</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'/dashboard/organization'">
+          <i class="fas fa-edit"></i>
+          <span>General Forrum</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'/dashboard/organization'">
+          <i class="fas fa-feed"></i>
+          <span>Feedback</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a id="profile_link_parent" class="nav-link" [routerLink]="'/organization/profile'" routerLinkActive="active">
+          <i class="fas fa-address-card"></i>
+          <span>Profile</span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</nav>

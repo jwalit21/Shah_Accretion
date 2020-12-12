@@ -1,0 +1,118 @@
+<div id="wrapper">
+    <app-organization-sidebar></app-organization-sidebar>
+    <div class="d-flex flex-column" id="content-wrapper">
+      <div id="content">
+        <app-dashboard-header></app-dashboard-header>
+        <div class="container-fluid">
+  
+          <div class="d-sm-flex justify-content-between align-items-center mb-4">
+            <h3 class="text-dark mb-0">Update Todo</h3>
+            <a class="btn btn-danger btn-sm d-sm-inline-block" role="button" [routerLink]="'/organization/todos/list'">
+                <i class="fas fa-backward fa-sm text-white-50"></i>
+                Back
+            </a>
+          </div>
+  
+          <div class="row">
+            <div class="col-lg-11">
+                <div class="card border shadow bg-light" style=" margin-top: 2%;">
+                    <div class="p-3 pt-4 card-header" style="background-color: #003542; color:white">
+                        <h5 class="text-center">Update Todo Details</h5>
+                        <h5 class="text-danger text-center
+                        "> {{ error_Msg }} </h5>
+                    </div>
+                    <div class="card-body">
+                        
+
+                        <form id="todo_form" enctype="multipart/form-data" [formGroup]="user" (ngSubmit)="onSubmit(user)" #newUserForm> <!--class="form-horizontal"-->
+                            
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="control-label ml-2 col-sm-6" >Todo ID: &nbsp; <span class="text-capitalize" style="font-weight: 900; color:blue;">{{ todo.todo_id }}</span></label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label ml-2 col-sm-2" for="emp_username">Employee Username<span style="color: red;">*</span></label>
+                                <div class="row">
+                                  <div class="col-sm-7 ml-3">
+                                        <select formControlName="emp_username" name="emp_username" [(ngModel)]="emp_username" class="form-control form-control-user" id="emp_username"
+                                          placeholder="Select Employee Username">
+                                              <option *ngFor="let emp of employees"> {{ emp.email }} </option>
+                                        </select>
+                                  </div>
+                                </div>
+                            </div>
+                          
+                            <div class="form-group">
+                              <label class="control-label ml-2 col-sm-2" for="title">Title<span style="color: red;">*</span></label>
+                              <div class="row">
+                                <div class="col-sm-7 ml-3">
+                                    <input type="text" formControlName="title" name="title" class="form-control form-control-user" id="title"
+                                        placeholder="Enter Title">
+                                </div>
+                                <div class="col-sm-4 mt-2 ml-2">
+                                    <span class="ml-2 text-danger" *ngIf="user.get('title').hasError('required') && user.get('title').touched">
+                                        Title is required
+                                    </span>
+                                </div>
+                              </div>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label class="control-label ml-2 col-sm-2" for="task">Task (Description)<span style="color: red;">*</span></label>
+                                <div class="row">
+                                  <div class="col-sm-7 ml-3">
+                                      <input type="text" formControlName="task" name="task" class="form-control form-control-user" id="task"
+                                          placeholder="Enter Task">
+                                  </div>
+                                  <div class="col-sm-4 mt-2 ml-2">
+                                      <span class="ml-2 text-danger" *ngIf="user.get('task').hasError('required') && user.get('task').touched">
+                                          Description is required
+                                      </span>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label  style="margin-top: 10px;" class="control-label ml-2 col-sm-6" >Date of Issue: &nbsp; <span class="text-capitalize" style=" color:blue;">{{ todo.date_of_issue }}</span></label>
+                            </div>
+                          
+                            <div class="form-group">
+                              <label class="control-label ml-2 col-sm-2" for="title">Date of Due<span style="color: red;">*</span></label>
+                              <div class="row">
+                                <div class="col-sm-7 ml-3">
+                                    <input type="date" [min]="current_date" formControlName="dod" name="dod" class="form-control form-control-user" id="dod"
+                                        placeholder="Enter Date of Due">
+                                </div>
+                                <div class="col-sm-4 mt-2 ml-2">
+                                    <span class="ml-2 text-danger" *ngIf="user.get('dod').hasError('required') && user.get('dod').touched">
+                                        Date of Due is required
+                                    </span>
+                                </div>
+                              </div>
+                            </div>
+                            <br>
+                          
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10 flex-first">
+                                    <button type="submit" [disabled]="user.invalid" class="btn btn-primary
+                                     mr-3 ml-2"
+                                        value="submit">Submit</button>
+                                    <button type="reset" (click)="user.reset()" class="btn btn-danger">Clear</button>
+                                </div>
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+          </div>
+          <br><br>
+
+        </div>
+      </div>
+      <app-dashboard-footer></app-dashboard-footer>
+    </div>
+    <a class="border rounded-circle d-inline scroll-to-top" href="#organization_page_top"><i class="fas fa-arrow-up"></i></a>
+  </div>
+  
